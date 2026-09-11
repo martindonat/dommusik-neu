@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/index.tsx"],"sourcesContent":["export * from '@platejs/core';\n\nexport * from '@platejs/slate';\n\nexport * from '@platejs/utils';\n\nexport * from '@udecode/utils';\n"],"mappings":";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA,0BAAc,0BAAd;AAEA,0BAAc,2BAFd;AAIA,0BAAc,2BAJd;AAMA,0BAAc,2BANd;","names":[]}
