@@ -1,0 +1,45 @@
+{{ with .contact }}
+<section class="section section--contact" id="kontakt">
+  <div class="shell contact-grid">
+    <header class="section-heading">
+      {{ with .kicker }}<p class="eyebrow eyebrow--dark">{{ . }}</p>{{ end }}
+      <h2>{{ .title }}</h2>
+      {{ with .text }}<p>{{ . }}</p>{{ end }}
+    </header>
+
+    <form class="contact-form" action="#" method="post">
+      <div class="form-row">
+        <label>
+          Vorname
+          <input type="text" name="first_name" autocomplete="given-name">
+        </label>
+        <label>
+          Nachname
+          <input type="text" name="last_name" autocomplete="family-name" required>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Telefon
+          <input type="tel" name="phone" autocomplete="tel">
+        </label>
+        <label>
+          E-Mail
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+      </div>
+
+      <label>
+        Ihre Nachricht
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+
+      <div class="form-actions">
+        <button class="button button--accent" type="submit">Anfrage versenden</button>
+        <button class="button button--ghost" type="reset">Zurücksetzen</button>
+      </div>
+    </form>
+  </div>
+</section>
+{{ end }}

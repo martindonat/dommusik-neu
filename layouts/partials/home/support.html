@@ -1,0 +1,17 @@
+{{ with .support }}
+<section class="section section--support" id="foerderverein">
+  <div class="shell support-card">
+    <div>
+      {{ with .kicker }}<p class="eyebrow">{{ . }}</p>{{ end }}
+      <h2>{{ .title }}</h2>
+      {{ with .text }}<p>{{ . }}</p>{{ end }}
+    </div>
+
+    {{ with .buttonLink }}
+      <a class="button button--light" href="{{ . | relURL }}">
+        {{ $.support.buttonLabel | default "Mehr erfahren" }}
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

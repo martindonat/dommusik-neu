@@ -1,5 +1,5 @@
 ---
-title: "Domsingschule"
+title: "Kinder- und Jugendchor"
 kicker: "Musik von Anfang an"
 tone: "school"
 lead: "Altersgerechte Angebote führen Kinder spielerisch an Stimme, Rhythmus und gemeinsames Musizieren heran."

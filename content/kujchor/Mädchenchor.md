@@ -1,9 +1,9 @@
 ---
-title: "Chorvorbereitung"
+title: "Spatzenchor"
 kicker: "Der Weg in den Chor"
 tone: "school"
 lead: "Grundlagen in Stimme, Rhythmus und Notenlesen bereiten auf das Singen im Kinderchor vor."
-weight: 20
+weight: 40
 ---
 
 ## Was wird gelernt?

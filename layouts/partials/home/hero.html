@@ -1,0 +1,67 @@
+{{ with .slides }}
+<section class="hero" aria-label="Schwerpunkte">
+  <div class="hero__viewport" data-carousel>
+    <div class="hero__slides" data-carousel-track>
+      {{ range $i, $slide := . }}
+        {{ $imageURL := "" }}
+
+        {{ with $slide.image }}
+          {{ with resources.Get . }}
+            {{ if reflect.IsImageResourceProcessable . }}
+              {{ $processed := .Resize "1800x webp q82" }}
+              {{ $imageURL = $processed.RelPermalink }}
+            {{ else }}
+              {{ $imageURL = .RelPermalink }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+        <article
+          class="hero-slide hero-slide--{{ $slide.tone | default "neutral" }}{{ if eq $i 0 }} is-active{{ end }}"
+          data-slide
+          aria-hidden="{{ if eq $i 0 }}false{{ else }}true{{ end }}">
+
+          <div
+            class="hero-slide__art{{ if $imageURL }} has-image{{ end }}"
+            {{ if $imageURL }}style="background-image: url('{{ $imageURL }}')"{{ end }}
+            aria-hidden="true">
+            <div class="hero-slide__motif"></div>
+          </div>
+
+          <div class="shell hero-slide__content-wrap">
+            <div class="hero-slide__content">
+              {{ with $slide.kicker }}<p class="eyebrow">{{ . }}</p>{{ end }}
+              <h1>{{ $slide.title }}</h1>
+              {{ with $slide.text }}<p>{{ . }}</p>{{ end }}
+              {{ with $slide.link }}
+                <a class="button button--accent" href="{{ . | relURL }}">
+                  Mehr erfahren <span aria-hidden="true">→</span>
+                </a>
+              {{ end }}
+            </div>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+
+    {{ if gt (len .) 1 }}
+      <div class="hero__controls shell">
+        <div class="hero__dots" role="tablist" aria-label="Schwerpunkte auswählen">
+          {{ range $i, $_ := . }}
+            <button
+              type="button"
+              class="hero-dot{{ if eq $i 0 }} is-active{{ end }}"
+              aria-label="Folie {{ add $i 1 }}"
+              data-carousel-dot="{{ $i }}"></button>
+          {{ end }}
+        </div>
+
+        <div class="hero__arrows">
+          <button type="button" aria-label="Vorherige Folie" data-carousel-prev>←</button>
+          <button type="button" aria-label="Nächste Folie" data-carousel-next>→</button>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

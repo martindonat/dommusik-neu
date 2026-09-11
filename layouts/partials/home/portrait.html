@@ -1,0 +1,20 @@
+{{ with .portrait }}
+<section class="section section--portrait">
+  <div class="shell portrait-grid">
+    <div class="portrait-media" aria-hidden="true">
+      <div class="portrait-media__stage"><span>♪</span><span>♫</span><span>♩</span></div>
+    </div>
+
+    <div class="portrait-copy">
+      {{ with .kicker }}<p class="eyebrow eyebrow--dark">{{ . }}</p>{{ end }}
+      <h2>{{ .title }}</h2>
+      {{ with .text }}<p>{{ . }}</p>{{ end }}
+      {{ with .buttonLink }}
+        <a class="button button--dark" href="{{ . | relURL }}">
+          {{ $.portrait.buttonLabel | default "Mehr erfahren" }}
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

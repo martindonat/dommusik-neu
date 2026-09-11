@@ -1,44 +1,44 @@
-baseURL = "https://example.org/"
-languageCode = "de-DE"
-title = "Dommusik Musterstadt"
+baseURL = ""
+locale = "de-DE"
+title = "Dommusik Erfurt"
 disableKinds = ["taxonomy", "term", "RSS"]
 
 [params]
   description = "Hugo-Theme im Stil einer modernen kirchenmusikalischen Website."
-  siteName = "Dommusik"
-  city = "Musterstadt"
-  dioceseLabel = "Zum Bistum Musterstadt"
-  dioceseURL = "#"
+  siteName = "Dommusik Erfurt"
+  city = "Erfurt"
+  dioceseLabel = ""
+  dioceseURL = ""
   email = "dommusik@example.org"
   phone = "+49 000 123456"
   addressOffice = "Domplatz 1"
-  addressPostal = "97000 Musterstadt"
+  addressPostal = "99084 Erfurt"
 
 [menu]
-  [[menu.main]]
-    name = "Über uns"
-    pageRef = "/ueber-uns"
-    weight = 10
   [[menu.main]]
     name = "Kalender"
     url = "/#veranstaltungen"
     weight = 20
   [[menu.main]]
-    name = "Chöre"
-    pageRef = "/choere"
+    name = "Domchor"
+    pageRef = "/domchor"
     weight = 30
   [[menu.main]]
-    name = "Domsingschule"
-    pageRef = "/domsingschule"
+    name = "Kinder- und Jugendchor"
+    pageRef = "/kujchor"
     weight = 40
   [[menu.main]]
     name = "Orgelmusik"
-    pageRef = "/orgelmusik"
+    pageRef = "/orgel"
     weight = 50
   [[menu.main]]
-    name = "Förderverein"
-    url = "/#foerderverein"
+    name = "Pfarrei"
+    pageRef = "/pfarrei"
     weight = 60
+  [[menu.main]]
+    name = "Förderverein"
+    url = "/verein"
+    weight = 70
 
 [markup]
   [markup.goldmark]

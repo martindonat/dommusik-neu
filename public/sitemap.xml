@@ -2,62 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/nachrichten/vorverkaufsstart-herbstkonzert/</loc>
+    <loc>//localhost:1313/nachrichten/vorverkaufsstart-herbstkonzert/</loc>
     <lastmod>2026-08-29T09:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/orgelmusik/orgeln-im-dom/</loc>
+    <loc>//localhost:1313/orgel/orgeln-im-dom/</loc>
   </url><url>
-    <loc>http://localhost:1313/choere/kinderchor/</loc>
+    <loc>//localhost:1313/verein/mitglied-werden/</loc>
   </url><url>
-    <loc>http://localhost:1313/foerderverein/mitglied-werden/</loc>
+    <loc>//localhost:1313/kujchor/spatzenchor/</loc>
   </url><url>
-    <loc>http://localhost:1313/domsingschule/fruehfoerderung/</loc>
+    <loc>//localhost:1313/pfarrei/team/</loc>
   </url><url>
-    <loc>http://localhost:1313/ueber-uns/team/</loc>
-  </url><url>
-    <loc>http://localhost:1313/nachrichten/jugendchor-begegnungsreise/</loc>
+    <loc>//localhost:1313/nachrichten/jugendchor-begegnungsreise/</loc>
     <lastmod>2026-08-26T09:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/domsingschule/chorvorbereitung/</loc>
+    <loc>//localhost:1313/kujchor/c-chor/</loc>
   </url><url>
-    <loc>http://localhost:1313/ueber-uns/geschichte/</loc>
+    <loc>//localhost:1313/pfarrei/geschichte/</loc>
   </url><url>
-    <loc>http://localhost:1313/choere/jugendchor/</loc>
+    <loc>//localhost:1313/orgel/orgelkonzerte/</loc>
   </url><url>
-    <loc>http://localhost:1313/orgelmusik/orgelkonzerte/</loc>
+    <loc>//localhost:1313/verein/spenden/</loc>
   </url><url>
-    <loc>http://localhost:1313/foerderverein/spenden/</loc>
-  </url><url>
-    <loc>http://localhost:1313/nachrichten/stummfilm-orgelimprovisation/</loc>
+    <loc>//localhost:1313/nachrichten/stummfilm-orgelimprovisation/</loc>
     <lastmod>2026-08-19T09:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/choere/domchor/</loc>
+    <loc>//localhost:1313/kujchor/b-chor/</loc>
   </url><url>
-    <loc>http://localhost:1313/ueber-uns/kontakt/</loc>
+    <loc>//localhost:1313/pfarrei/kontakt/</loc>
   </url><url>
-    <loc>http://localhost:1313/domsingschule/stimmbildung/</loc>
-  </url><url>
-    <loc>http://localhost:1313/nachrichten/neue-kurse-fruehfoerderung/</loc>
+    <loc>//localhost:1313/nachrichten/neue-kurse-fruehfoerderung/</loc>
     <lastmod>2026-08-01T09:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/foerderverein/</loc>
+    <loc>//localhost:1313/verein/</loc>
   </url><url>
-    <loc>http://localhost:1313/choere/kammerchor/</loc>
+    <loc>//localhost:1313/kujchor/m%C3%A4dchenchor/</loc>
   </url><url>
-    <loc>http://localhost:1313/nachrichten/</loc>
+    <loc>//localhost:1313/kujchor/knabenchor/</loc>
+  </url><url>
+    <loc>//localhost:1313/nachrichten/</loc>
     <lastmod>2026-08-29T09:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/veranstaltungen/</loc>
+    <loc>//localhost:1313/kujchor/stimmbildung/</loc>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>//localhost:1313/veranstaltungen/</loc>
+  </url><url>
+    <loc>//localhost:1313/</loc>
     <lastmod>2026-08-29T09:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/choere/</loc>
+    <loc>//localhost:1313/domchor/</loc>
   </url><url>
-    <loc>http://localhost:1313/domsingschule/</loc>
+    <loc>//localhost:1313/kujchor/</loc>
   </url><url>
-    <loc>http://localhost:1313/orgelmusik/</loc>
+    <loc>//localhost:1313/orgel/</loc>
   </url><url>
-    <loc>http://localhost:1313/ueber-uns/</loc>
+    <loc>//localhost:1313/pfarrei/</loc>
   </url>
 </urlset>

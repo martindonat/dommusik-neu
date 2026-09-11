@@ -1,0 +1,29 @@
+{{ with .news }}
+<section class="section section--news" id="aktuelles">
+  <div class="shell section-grid section-grid--news">
+    <header class="section-heading">
+      <p class="eyebrow eyebrow--dark">Dommusik aktuell</p>
+      <h2>Nachrichten</h2>
+      <p>Neuigkeiten aus Chorarbeit, Konzertbetrieb und Domsingschule.</p>
+    </header>
+
+    <div class="news-list">
+      {{ range . }}
+        {{ $href := .link | default "#" }}
+        <article class="news-item">
+          <div class="news-item__date">{{ .date }}</div>
+          <div class="news-item__body">
+            <h3><a href="{{ $href | relURL }}">{{ .title }}</a></h3>
+            {{ with .text }}<p>{{ . }}</p>{{ end }}
+            <a class="text-link" href="{{ $href | relURL }}">
+              ganzen Artikel lesen <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      {{ end }}
+
+      <a class="button button--outline" href="{{ "/nachrichten/" | relURL }}">Alle Nachrichten</a>
+    </div>
+  </div>
+</section>
+{{ end }}

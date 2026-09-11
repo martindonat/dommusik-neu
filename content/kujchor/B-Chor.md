@@ -1,9 +1,9 @@
 ---
-title: "Musikalische Frühförderung"
+title: "B-Chor"
 kicker: "Hören, bewegen, singen"
 tone: "school"
 lead: "Spielerische Musikangebote für die ersten gemeinsamen Erfahrungen mit Stimme und Rhythmus."
-weight: 10
+weight: 30
 ---
 
 ## Inhalte

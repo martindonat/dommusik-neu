@@ -20,20 +20,17 @@
       <section>
         <h2>Direkt</h2>
         <ul class="footer-links">
-          <li><a href="{{ "/choere/" | relURL }}">Chöre</a></li>
-          <li><a href="{{ "/orgelmusik/" | relURL }}">Orgelmusik</a></li>
-          <li><a href="{{ "/domsingschule/" | relURL }}">Domsingschule</a></li>
-          <li><a href="{{ "/#veranstaltungen" | relURL }}">Kalender</a></li>
+          <li><a href="{{ "/domchor/" | relURL }}">Domchor</a></li>
+          <li><a href="{{ "/orgel/" | relURL }}">Orgelmusik</a></li>
+          <li><a href="{{ "/kujchor/" | relURL }}">Kinder- und Jugendchor</a></li>
+          <li><a href="{{ "/verein/" | relURL }}">Förderverein</a></li>
         </ul>
       </section>
 
       <section>
-        <h2>Service</h2>
+        <h2>Social</h2>
         <ul class="footer-links">
           <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
         </ul>
       </section>
     </div>
@@ -42,7 +39,8 @@
   <div class="site-footer__legal">
     <div class="shell">
       <span>© {{ now.Year }} {{ site.Title }}</span>
-      <span>Hugo-Umsetzung · Demo-Inhalte</span>
+      <span><a href="{{ "/impressum/" | relURL }}">Impressum</a></span>
+      <span><a href="{{ "/datenschutz/" | relURL }}">Datenschutz</a></span>
     </div>
   </div>
 </footer>
