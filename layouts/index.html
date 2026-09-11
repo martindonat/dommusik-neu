@@ -1,0 +1,155 @@
+{{ define "main" }}
+  {{ $home := site.Data.home }}
+
+  {{ with $home.slides }}
+  <section class="hero" aria-label="Schwerpunkte">
+    <div class="hero__viewport" data-carousel>
+      <div class="hero__slides" data-carousel-track>
+        {{ range $i, $slide := . }}
+          <article class="hero-slide hero-slide--{{ $slide.tone | default "neutral" }}{{ if eq $i 0 }} is-active{{ end }}" data-slide aria-hidden="{{ if eq $i 0 }}false{{ else }}true{{ end }}">
+            <div class="hero-slide__art{{ with $slide.image }} has-image{{ end }}"{{ with $slide.image }} style="background-image:url('{{ . | relURL }}')"{{ end }} aria-hidden="true">
+              <div class="hero-slide__motif"></div>
+            </div>
+            <div class="shell hero-slide__content-wrap">
+              <div class="hero-slide__content">
+                {{ with $slide.kicker }}<p class="eyebrow">{{ . }}</p>{{ end }}
+                <h1>{{ $slide.title }}</h1>
+                {{ with $slide.text }}<p>{{ . }}</p>{{ end }}
+                {{ with $slide.link }}
+                  <a class="button button--accent" href="{{ . | relURL }}">Mehr erfahren <span aria-hidden="true">→</span></a>
+                {{ end }}
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+
+      {{ if gt (len .) 1 }}
+      <div class="hero__controls shell">
+        <div class="hero__dots" role="tablist" aria-label="Schwerpunkte auswählen">
+          {{ range $i, $_ := . }}
+            <button type="button" class="hero-dot{{ if eq $i 0 }} is-active{{ end }}" aria-label="Folie {{ add $i 1 }}" data-carousel-dot="{{ $i }}"></button>
+          {{ end }}
+        </div>
+        <div class="hero__arrows">
+          <button type="button" aria-label="Vorherige Folie" data-carousel-prev>←</button>
+          <button type="button" aria-label="Nächste Folie" data-carousel-next>→</button>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with $home.news }}
+  <section class="section section--news" id="aktuelles">
+    <div class="shell section-grid section-grid--news">
+      <header class="section-heading">
+        <p class="eyebrow eyebrow--dark">Dommusik aktuell</p>
+        <h2>Nachrichten</h2>
+        <p>Neuigkeiten aus Chorarbeit, Konzertbetrieb und Domsingschule.</p>
+      </header>
+
+      <div class="news-list">
+        {{ range . }}
+          <article class="news-item">
+            <div class="news-item__date">{{ .date }}</div>
+            <div class="news-item__body">
+              <h3><a href="{{ .link | default "#" | relURL }}">{{ .title }}</a></h3>
+              {{ with .text }}<p>{{ . }}</p>{{ end }}
+              <a class="text-link" href="{{ .link | default "#" | relURL }}">ganzen Artikel lesen <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        {{ end }}
+        <a class="button button--outline" href="#">Alle Nachrichten</a>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with $home.events }}
+  <section class="section section--events" id="veranstaltungen">
+    <div class="shell">
+      <header class="section-heading section-heading--row">
+        <div>
+          <p class="eyebrow eyebrow--dark">Termine</p>
+          <h2>Aktuelle Veranstaltungen</h2>
+        </div>
+        <a class="text-link text-link--large" href="#">Zum Kalender <span aria-hidden="true">→</span></a>
+      </header>
+
+      <div class="event-grid">
+        {{ range . }}
+          <article class="event-card">
+            <div class="event-card__date">
+              <strong>{{ .day }}</strong><span>{{ .month }}</span>
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__meta">{{ .weekday }} · {{ .meta }}</p>
+              <h3>{{ .title }}</h3>
+              <a class="event-card__link" href="{{ .link | default "#" | relURL }}" aria-label="Details zu {{ .title }}">→</a>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with $home.portrait }}
+  <section class="section section--portrait">
+    <div class="shell portrait-grid">
+      <div class="portrait-media" aria-hidden="true">
+        <div class="portrait-media__stage"><span>♪</span><span>♫</span><span>♩</span></div>
+      </div>
+      <div class="portrait-copy">
+        {{ with .kicker }}<p class="eyebrow eyebrow--dark">{{ . }}</p>{{ end }}
+        <h2>{{ .title }}</h2>
+        {{ with .text }}<p>{{ . }}</p>{{ end }}
+        {{ with .buttonLink }}<a class="button button--dark" href="{{ . | relURL }}">{{ $.Site.Data.home.portrait.buttonLabel }}</a>{{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with $home.support }}
+  <section class="section section--support" id="foerderverein">
+    <div class="shell support-card">
+      <div>
+        {{ with .kicker }}<p class="eyebrow">{{ . }}</p>{{ end }}
+        <h2>{{ .title }}</h2>
+        {{ with .text }}<p>{{ . }}</p>{{ end }}
+      </div>
+      {{ with .buttonLink }}<a class="button button--light" href="{{ . | relURL }}">{{ $.Site.Data.home.support.buttonLabel }}</a>{{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with $home.contact }}
+  <section class="section section--contact" id="kontakt">
+    <div class="shell contact-grid">
+      <header class="section-heading">
+        {{ with .kicker }}<p class="eyebrow eyebrow--dark">{{ . }}</p>{{ end }}
+        <h2>{{ .title }}</h2>
+        {{ with .text }}<p>{{ . }}</p>{{ end }}
+      </header>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="form-row">
+          <label>Vorname <input type="text" name="first_name" autocomplete="given-name"></label>
+          <label>Nachname <input type="text" name="last_name" autocomplete="family-name" required></label>
+        </div>
+        <div class="form-row">
+          <label>Telefon <input type="tel" name="phone" autocomplete="tel"></label>
+          <label>E-Mail <input type="email" name="email" autocomplete="email" required></label>
+        </div>
+        <label>Ihre Nachricht <textarea name="message" rows="6" required></textarea></label>
+        <div class="form-actions">
+          <button class="button button--accent" type="submit">Anfrage versenden</button>
+          <button class="button button--ghost" type="reset">Zurücksetzen</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  {{ end }}
+{{ end }}

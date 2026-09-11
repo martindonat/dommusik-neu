@@ -1,0 +1,162 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Lokale Bearbeitung über `npm run cms` bzw. `npx decap-server`.
+local_backend: true
+
+locale: de
+site_url: https://example.org/
+display_url: https://example.org/
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: startseite
+    label: Startseite
+    editor:
+      preview: false
+    files:
+      - name: home
+        label: Startseiten-Inhalte
+        file: data/home.yaml
+        fields:
+          - label: Hero-Slides
+            name: slides
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Kicker, name: kicker, widget: string, required: false }
+              - { label: Titel, name: title, widget: string }
+              - { label: Text, name: text, widget: text, required: false }
+              - { label: Link, name: link, widget: string, required: false }
+              - label: Farbmotiv
+                name: tone
+                widget: select
+                default: neutral
+                options:
+                  - { label: Neutral, value: neutral }
+                  - { label: Chor, value: choir }
+                  - { label: Orgel, value: organ }
+                  - { label: Domsingschule, value: school }
+                  - { label: Förderung, value: support }
+                  - { label: Team, value: team }
+              - { label: Bild, name: image, widget: image, required: false }
+
+          - label: Nachrichten
+            name: news
+            widget: list
+            summary: "{{fields.date}} · {{fields.title}}"
+            fields:
+              - { label: Datum, name: date, widget: string }
+              - { label: Titel, name: title, widget: string }
+              - { label: Text, name: text, widget: text, required: false }
+              - { label: Link, name: link, widget: string, required: false, default: "#" }
+
+          - label: Veranstaltungen
+            name: events
+            widget: list
+            summary: "{{fields.day}}. {{fields.month}} · {{fields.title}}"
+            fields:
+              - { label: Tag, name: day, widget: string }
+              - { label: Monat, name: month, widget: string }
+              - { label: Wochentag, name: weekday, widget: string }
+              - { label: Ort / Uhrzeit, name: meta, widget: string }
+              - { label: Titel, name: title, widget: string }
+              - { label: Link, name: link, widget: string, required: false, default: "#" }
+
+          - label: Porträt-Bereich
+            name: portrait
+            widget: object
+            fields:
+              - { label: Kicker, name: kicker, widget: string, required: false }
+              - { label: Titel, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Button-Text, name: buttonLabel, widget: string }
+              - { label: Button-Link, name: buttonLink, widget: string }
+
+          - label: Förder-Bereich
+            name: support
+            widget: object
+            fields:
+              - { label: Kicker, name: kicker, widget: string, required: false }
+              - { label: Titel, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Button-Text, name: buttonLabel, widget: string }
+              - { label: Button-Link, name: buttonLink, widget: string }
+
+          - label: Kontakt-Bereich
+            name: contact
+            widget: object
+            fields:
+              - { label: Kicker, name: kicker, widget: string, required: false }
+              - { label: Titel, name: title, widget: string }
+              - { label: Einleitung, name: text, widget: text }
+
+  - name: hauptseiten
+    label: Hauptseiten
+    editor:
+      preview: false
+    format: yaml-frontmatter
+    files:
+      - name: choere
+        label: Chöre
+        file: content/choere/_index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Kicker, name: kicker, widget: string, required: false }
+          - label: Farbmotiv
+            name: tone
+            widget: select
+            required: false
+            options: [choir, organ, school, support, team, neutral]
+          - { label: Einleitung, name: lead, widget: text, required: false }
+          - { label: Inhalt, name: body, widget: markdown, required: false }
+
+      - name: domsingschule
+        label: Domsingschule
+        file: content/domsingschule/_index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Kicker, name: kicker, widget: string, required: false }
+          - label: Farbmotiv
+            name: tone
+            widget: select
+            required: false
+            options: [choir, organ, school, support, team, neutral]
+          - { label: Einleitung, name: lead, widget: text, required: false }
+          - { label: Inhalt, name: body, widget: markdown, required: false }
+
+      - name: orgelmusik
+        label: Orgelmusik
+        file: content/orgelmusik/_index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Kicker, name: kicker, widget: string, required: false }
+          - label: Farbmotiv
+            name: tone
+            widget: select
+            required: false
+            options: [choir, organ, school, support, team, neutral]
+          - { label: Einleitung, name: lead, widget: text, required: false }
+          - { label: Inhalt, name: body, widget: markdown, required: false }
+
+      - name: ueber-uns
+        label: Über uns
+        file: content/ueber-uns/_index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Kicker, name: kicker, widget: string, required: false }
+          - label: Farbmotiv
+            name: tone
+            widget: select
+            required: false
+            options: [choir, organ, school, support, team, neutral]
+          - { label: Einleitung, name: lead, widget: text, required: false }
+          - { label: Inhalt, name: body, widget: markdown, required: false }

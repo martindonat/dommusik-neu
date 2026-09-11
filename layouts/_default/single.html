@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="page-hero page-hero--{{ .Params.tone | default "neutral" }}">
+  <div class="page-hero__art{{ with .Params.image }} has-image{{ end }}"{{ with .Params.image }} style="background-image:url('{{ . | relURL }}')"{{ end }} aria-hidden="true"></div>
+  <div class="shell page-hero__inner">
+    <nav class="breadcrumb" aria-label="Brotkrumen">
+      <a href="{{ site.Home.RelPermalink }}">Home</a><span aria-hidden="true">›</span>
+      {{ with .Parent }}
+        {{ if not .IsHome }}<a href="{{ .RelPermalink }}">{{ .Title }}</a><span aria-hidden="true">›</span>{{ end }}
+      {{ end }}
+      <span aria-current="page">{{ .Title }}</span>
+    </nav>
+    <p class="eyebrow">{{ .Params.kicker | default "Dommusik" }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="page-hero__lead">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="section page-content">
+  <div class="shell article-shell">
+    <article class="richtext">
+      {{ .Content }}
+    </article>
+  </div>
+</section>
+{{ end }}

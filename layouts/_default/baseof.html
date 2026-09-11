@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode | default "de-DE" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta name="color-scheme" content="light">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  {{ partialCached "styles.html" . }}
+</head>
+<body class="{{ if .IsHome }}is-home{{ else }}is-subpage{{ end }}">
+  <a class="skip-link" href="#main">Zum Inhalt</a>
+
+  {{ partial "header.html" . }}
+
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  <button class="back-to-top" type="button" aria-label="Nach oben" data-back-to-top>↑</button>
+  {{ partialCached "scripts.html" . }}
+</body>
+</html>

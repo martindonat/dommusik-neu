@@ -1,0 +1,46 @@
+baseURL = "https://example.org/"
+languageCode = "de-DE"
+title = "Dommusik Musterstadt"
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  description = "Hugo-Theme im Stil einer modernen kirchenmusikalischen Website."
+  siteName = "Dommusik"
+  city = "Musterstadt"
+  dioceseLabel = "Zum Bistum Musterstadt"
+  dioceseURL = "#"
+  email = "dommusik@example.org"
+  phone = "+49 000 123456"
+  addressOffice = "Domplatz 1"
+  addressPostal = "97000 Musterstadt"
+
+[menu]
+  [[menu.main]]
+    name = "Über uns"
+    pageRef = "/ueber-uns"
+    weight = 10
+  [[menu.main]]
+    name = "Kalender"
+    url = "/#veranstaltungen"
+    weight = 20
+  [[menu.main]]
+    name = "Chöre"
+    pageRef = "/choere"
+    weight = 30
+  [[menu.main]]
+    name = "Domsingschule"
+    pageRef = "/domsingschule"
+    weight = 40
+  [[menu.main]]
+    name = "Orgelmusik"
+    pageRef = "/orgelmusik"
+    weight = 50
+  [[menu.main]]
+    name = "Förderverein"
+    url = "/#foerderverein"
+    weight = 60
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

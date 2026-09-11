@@ -1,0 +1,67 @@
+@use "variables" as *;
+
+.site-header {
+  position: relative;
+  z-index: 100;
+  background: var(--color-paper);
+  box-shadow: var(--shadow-header);
+}
+.utility-bar {
+  background: var(--color-paper-warm);
+  border-bottom: 1px solid var(--color-line);
+  &__inner { min-height: 42px; display: flex; align-items: center; justify-content: flex-end; }
+}
+.diocese-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-link-muted);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.03em;
+  &:hover { color: var(--color-ink); }
+}
+.diocese-mark {
+  position: relative;
+  width: 18px;
+  height: 22px;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    width: 7px;
+    height: 12px;
+    border: 2px solid var(--color-accent);
+  }
+  &::before { top: 0; border-left: 0; border-bottom: 0; transform: skewY(20deg); }
+  &::after { bottom: 0; border-left: 0; border-top: 0; transform: skewY(-20deg); }
+}
+.masthead { background: var(--color-paper); }
+.masthead__inner { min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.brand { display: inline-flex; align-items: center; gap: 15px; min-width: 220px; }
+.brand__logo {
+  display: block;
+  width: auto;
+  height: 64px;
+  flex: 0 0 auto;
+}
+.brand__text {
+  display: grid;
+  line-height: 1;
+  strong { font-size: 1.28rem; letter-spacing: 0.02em; text-transform: uppercase; }
+  small { margin-top: 6px; color: var(--color-accent-strong); font-size: var(--font-size-body); font-weight: var(--font-weight-bold); }
+}
+.main-nav ul { display: flex; align-items: stretch; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.main-nav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 104px;
+  padding: 0 13px;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-bold);
+  &::after { content: ""; position: absolute; left: 13px; right: 13px; bottom: 24px; height: 3px; background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: var(--transition-fast); }
+  &:hover::after, &.is-active::after { transform: scaleX(1); }
+}
+.nav-toggle { display: none; align-items: center; gap: 12px; border: 0; background: var(--color-transparent); font-weight: var(--font-weight-bold); cursor: pointer; }
+.nav-toggle__icon { width: 30px; display: grid; gap: 5px; i { display: block; height: 2px; background: var(--color-ink); } }

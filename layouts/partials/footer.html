@@ -1,0 +1,48 @@
+<footer class="site-footer">
+  <div class="site-footer__main">
+    <div class="shell footer-grid">
+      <section>
+        <h2>{{ site.Params.siteName | default site.Title }}{{ with site.Params.city }} {{ . }}{{ end }}</h2>
+        <address>
+          {{ with site.Params.addressOffice }}{{ . }}{{ end }}
+          {{ with site.Params.addressPostal }}<br>{{ . }}{{ end }}
+        </address>
+        <p>
+          {{ with site.Params.phone }}
+            <a href="tel:{{ . | replaceRE "[^0-9+]" "" }}">{{ . }}</a><br>
+          {{ end }}
+          {{ with site.Params.email }}
+            <a href="mailto:{{ . }}">{{ . }}</a>
+          {{ end }}
+        </p>
+      </section>
+
+      <section>
+        <h2>Direkt</h2>
+        <ul class="footer-links">
+          <li><a href="{{ "/choere/" | relURL }}">Chöre</a></li>
+          <li><a href="{{ "/orgelmusik/" | relURL }}">Orgelmusik</a></li>
+          <li><a href="{{ "/domsingschule/" | relURL }}">Domsingschule</a></li>
+          <li><a href="{{ "/#veranstaltungen" | relURL }}">Kalender</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Service</h2>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <div class="site-footer__legal">
+    <div class="shell">
+      <span>© {{ now.Year }} {{ site.Title }}</span>
+      <span>Hugo-Umsetzung · Demo-Inhalte</span>
+    </div>
+  </div>
+</footer>

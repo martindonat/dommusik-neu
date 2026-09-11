@@ -1,0 +1,8 @@
+// Sass-only compile-time tokens.
+// Runtime theme tokens are emitted from _theme.scss as CSS custom properties.
+// Breakpoints stay in Sass because CSS custom properties cannot be used
+// reliably in media-query conditions.
+
+$breakpoint-nav: 1060px;
+$breakpoint-tablet: 780px;
+$breakpoint-mobile: 560px;

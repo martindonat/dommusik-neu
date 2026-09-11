@@ -1,0 +1,14 @@
+{
+  "name": "hugo-dommusik-style",
+  "private": true,
+  "scripts": {
+    "cms": "decap-server"
+  },
+  "dependencies": {
+    "decap-cms": "^3.16.0",
+    "netlify-identity-widget": "^2.0.3"
+  },
+  "devDependencies": {
+    "decap-server": "^3.11.0"
+  }
+}

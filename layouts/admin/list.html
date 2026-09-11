@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>{{ .Title }} · {{ site.Title }}</title>
+  <link href="{{ "admin/config.yml" | relURL }}" type="text/yaml" rel="cms-config-url">
+</head>
+<body>
+  <noscript>Für das Content Management wird JavaScript benötigt.</noscript>
+
+  {{ with resources.Get "js/admin.js" }}
+    {{ $opts := dict
+      "targetPath" "admin/decap.js"
+      "minify" (not hugo.IsDevelopment)
+      "sourceMap" (cond hugo.IsDevelopment "linked" "none")
+      "target" "es2020"
+    }}
+    {{ with . | js.Build $opts }}
+      {{ if hugo.IsDevelopment }}
+        <script src="{{ .RelPermalink }}"></script>
+      {{ else }}
+        {{ with . | fingerprint "sha256" }}
+          <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</body>
+</html>
